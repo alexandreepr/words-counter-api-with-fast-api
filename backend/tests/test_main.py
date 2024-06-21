@@ -18,7 +18,7 @@ def test_words_counter_empty_string():
         "/api/v1/words-counter",
         json={"words_string": "    "}
     )
-    assert response.status_code == 400
+    assert response.status_code == 422
     assert response.json() == {"detail": "Input string is empty or contains only whitespace."}
 
 
