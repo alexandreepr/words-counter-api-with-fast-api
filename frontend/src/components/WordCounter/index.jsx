@@ -22,7 +22,7 @@ export const WordCounter = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost/api/v1/words-counter', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/words-counter`, {
         words_string: form.values.text
       });
 
