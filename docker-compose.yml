@@ -1,14 +1,14 @@
-version: '3.8'
+version: "3.8"
 
 services:
   frontend:
     build:
       context: ./frontend
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
-      - .:/frontend:/app
-      - /frontend/app/node_modules
+      - .:/frontend/app
+      - /app/node_modules
     environment:
       - NODE_ENV=production
       - WATCHPACK_POLLING=true
