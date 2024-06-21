@@ -1,7 +1,5 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import axios from 'axios';
-import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import { WordCounter } from '..';
 import { MantineProvider } from '@mantine/core';
