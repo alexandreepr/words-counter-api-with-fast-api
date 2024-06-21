@@ -2,10 +2,9 @@
 
 # dependencies
 /frontend/node_modules
-/backend/app/__pycache__
+/frontend/package-lock.json
 /.pnp
 .pnp.js
-/frontend/package-lock.json
 
 # testing
 /coverage
