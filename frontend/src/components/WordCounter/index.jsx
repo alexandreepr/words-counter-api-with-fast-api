@@ -1,7 +1,8 @@
 import React from 'react';
-import { Alert, Box, Button, Card, Group, Text, TextInput } from '@mantine/core';
+import { Alert, Box, Card, Text, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import axios from 'axios';
+import { FormButtons } from '../FormButtons';
 
 export const WordCounter = () => {
   const [wordsCounter, setWordsCounter] = React.useState(0);
@@ -11,7 +12,8 @@ export const WordCounter = () => {
     initialValues: { text: '' },
     validate: {
       text: (value) => {
-        if (value.length < 1) {
+        if (value.length < 1 || value.trim().length < 1) {
+          setWordsCounter(0);
           return 'Please enter a text';
         }
       }
@@ -43,7 +45,7 @@ export const WordCounter = () => {
         p="lg"
         radius="md"
         withBorder
-        style={{ backgroundColor: '#e1ebee', height: '17vh', width: '50vh' }}>
+        style={{ backgroundColor: '#e1ebee', height: '17vh', width: '50vh', minHeight: '320px' }}>
         <Text style={{ fontSize: '50px', textAlign: 'center' }}>Words Counter</Text>
 
         <form
@@ -54,7 +56,6 @@ export const WordCounter = () => {
           <TextInput
             placeholder="Start typing..."
             value={form.values.text}
-            // style={{ height: '50%' }}
             {...form.getInputProps('text')}
           />
           {error && (
@@ -65,17 +66,12 @@ export const WordCounter = () => {
 
           <Text mt="xs">Words count: {wordsCounter}</Text>
 
-          <Group style={{ justifyContent: 'end', display: 'flex' }} mt="md">
-            <Button
-              onClick={() => {
-                form.reset();
-                setWordsCounter(0);
-              }}
-              color="red">
-              Reset
-            </Button>
-            <Button type="submit">Count words</Button>
-          </Group>
+          <FormButtons
+            onReset={() => {
+              form.reset();
+              setWordsCounter(0);
+            }}
+          />
         </form>
       </Card>
     </Box>
