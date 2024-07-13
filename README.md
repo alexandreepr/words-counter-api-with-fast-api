@@ -1,6 +1,6 @@
 # Words Counter
 
-This project is a solution to the Voxy code challenge using ReactJS and FastAPI.
+This project is a simple app to count words using ReactJS and FastAPI.
 
 ## Requirements
 
